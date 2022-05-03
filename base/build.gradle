@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility buildConfig.javaVersion
+    targetCompatibility buildConfig.javaVersion
+}
+
+dependencies {
+    api libs.kotlin.coroutines.core
+
+    api libs.dagger.hilt.core
+
+    api libs.threetenabp.threetenabp
+    testImplementation libs.threetenabp.test
+
+    testImplementation libs.junit
+    testImplementation libs.google.truth
+}
