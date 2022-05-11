@@ -30,7 +30,10 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -223,8 +226,10 @@ class ComposePlaygroundFragment : BaseFragment() {
             ) {
                 ScrollableTabRow(
                     backgroundColor = Color.Transparent,
-                    modifier = Modifier.navigationBarsPadding(bottom = false),
-                    selectedTabIndex = selectedPlaygroundTab.value.ordinal
+                    modifier = Modifier
+                        .navigationBarsPadding(bottom = false)
+                        .testTag("playgroundScrollableRow"),
+                    selectedTabIndex = selectedPlaygroundTab.value.ordinal,
                 ) {
                     PlaygroundTab.values().forEach { screen ->
                         Tab(
@@ -345,7 +350,8 @@ class ComposePlaygroundFragment : BaseFragment() {
                         Text(
                             modifier = Modifier
                                 .weight(1f)
-                                .align(Top),
+                                .align(Top)
+                                .clearAndSetSemantics { contentDescription = name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } },
                             text = name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() },
                             style = MaterialTheme.typography.body1
                         )
@@ -355,6 +361,7 @@ class ComposePlaygroundFragment : BaseFragment() {
                                 Locale.getDefault()
                             ),
                             style = MaterialTheme.typography.body2
+
                         )
                     }
                 }

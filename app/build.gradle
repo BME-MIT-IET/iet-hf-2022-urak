@@ -37,6 +37,10 @@ android {
         versionName "1.2.5"
         testInstrumentationRunner "sk.kasper.space.CustomAndroidJUnitRunner"
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+
         manifestPlaceholders += [
                 google_maps_key: "${System.getenv("SPACE_APP_GOOGLE_MAPS_KEY")}",
         ]
@@ -119,6 +123,8 @@ dependencies {
     androidTestImplementation libs.androidx.test.junit
     androidTestImplementation libs.androidx.test.rules
     androidTestImplementation libs.androidx.test.runner
+
+
 
     androidTestUtil libs.androidx.test.orchestrator
     testImplementation libs.androidx.coretesting
