@@ -82,6 +82,8 @@ class LibrariesFragment: BaseFragment() {
                     Text(text = library.name)
                     Text(text = library.link)
                 }
+// TODO I don't know whether this code should be deleted.
+
 //                ListItem(
 //                    modifier = Modifier.clickable { onLibraryClick(library) },
 //                    text = { Text(text = library.name) },
