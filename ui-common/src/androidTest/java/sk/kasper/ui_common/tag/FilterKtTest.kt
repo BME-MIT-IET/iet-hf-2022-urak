@@ -151,7 +151,7 @@ class FilterKtTest {
             .assertIsOn()
     }
 
-    fun SemanticsNodeInteractionsProvider.onClearButton(): SemanticsNodeInteraction {
+    private fun SemanticsNodeInteractionsProvider.onClearButton(): SemanticsNodeInteraction {
         return onNodeWithContentDescription("clear button")
     }
 

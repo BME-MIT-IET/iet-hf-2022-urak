@@ -2,7 +2,6 @@ package sk.kasper.ui_launch.section
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -27,7 +26,7 @@ fun FalconSection(falconInfoViewModel: FalconInfoViewModel) {
         ) {
             Text(
                 stringResource(id = R.string.falcon_9_first_stage),
-                style = MaterialTheme.typography.section,
+                style = section,
                 modifier = Modifier
                     .padding(vertical = 20.dp)
                     .navigationBarsPadding(bottom = false)

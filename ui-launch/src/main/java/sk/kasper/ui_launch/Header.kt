@@ -70,7 +70,7 @@ private fun LaunchHeader(
                     Text(
                         modifier = Modifier.padding(bottom = 8.dp),
                         text = state.missionName,
-                        style = MaterialTheme.typography.section,
+                        style = section,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
@@ -115,7 +115,7 @@ private fun LaunchHeader(
                         onClick = { onShowVideoClick() }
                     ) {
                         Text(
-                            text = stringResource(id = R.string.watch_launch_live).toUpperCase(
+                            text = stringResource(id = R.string.watch_launch_live).uppercase(
                                 Locale.getDefault()
                             ),
                             color = colorResource(id = R.color.youtube_red)

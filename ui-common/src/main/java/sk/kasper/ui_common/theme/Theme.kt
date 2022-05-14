@@ -42,7 +42,7 @@ private val Shapes = Shapes(
         )
 )
 
-val Shapes.tag: CornerBasedShape
+val tag: CornerBasedShape
         get() = RoundedCornerShape(percent = 50)
 
 @Composable

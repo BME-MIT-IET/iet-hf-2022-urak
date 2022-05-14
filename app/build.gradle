@@ -133,4 +133,9 @@ dependencies {
     def preference_version = "1.2.0"
 
     implementation "androidx.preference:preference-ktx:$preference_version"
+
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+
 }

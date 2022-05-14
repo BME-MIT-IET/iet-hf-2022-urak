@@ -37,7 +37,7 @@ fun LaunchSiteSection(launchSiteViewModel: LaunchSiteViewModel) {
         ) {
             Text(
                 stringResource(id = state.title),
-                style = MaterialTheme.typography.section,
+                style = section,
                 modifier = Modifier
                     .padding(vertical = 20.dp)
             )
