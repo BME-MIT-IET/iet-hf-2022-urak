@@ -1,6 +1,6 @@
 package sk.kasper.database
 
-import androidx.room.Room
+import androidx.room.Room.inMemoryDatabaseBuilder
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import com.jakewharton.threetenabp.AndroidThreeTen
@@ -50,7 +50,7 @@ class DatabaseTest {
         val context = InstrumentationRegistry.getInstrumentation().context
 
         AndroidThreeTen.init(context)
-        database = Room.inMemoryDatabaseBuilder(context, SpaceRoomDatabase::class.java).build()
+        database = inMemoryDatabaseBuilder(context, SpaceRoomDatabase::class.java).build()
 
         launchDao = database.launchDao()
         rocketDao = database.rocketDao()
