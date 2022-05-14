@@ -2,7 +2,7 @@ package sk.kasper.space
 
 import android.app.Application
 import android.content.Context
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager.getDefaultSharedPreferences
 import androidx.test.runner.AndroidJUnitRunner
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.hilt.android.testing.HiltTestApplication
@@ -13,7 +13,7 @@ class CustomAndroidJUnitRunner : AndroidJUnitRunner() {
     override fun newApplication(cl: ClassLoader, className: String, context: Context): Application {
         // TODO D: find nicer way how prepare tests
         AndroidThreeTen.init(context)
-        PreferenceManager.getDefaultSharedPreferences(context).edit()
+        getDefaultSharedPreferences(context).edit()
             .clear()
             .commit()
         return super.newApplication(cl, HiltTestApplication::class.java.name, context)
