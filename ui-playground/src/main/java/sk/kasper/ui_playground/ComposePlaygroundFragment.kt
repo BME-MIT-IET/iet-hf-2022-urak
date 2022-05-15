@@ -35,6 +35,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.findNavController
+import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.navigationBarsPadding
@@ -452,9 +453,10 @@ class ComposePlaygroundFragment : BaseFragment() {
                 .border(2.dp, Color.LightGray)
         ) {
             Box(contentAlignment = BottomCenter) {
-                // TODO D: use "https://placebear.com/640/420"
                 Image(
-                    painter = painterResource(id = R.drawable.atlas_5),
+                    painter = rememberAsyncImagePainter(
+                        model = "https://placebear.com/640/420"
+                    ),
                     contentScale = contentScale,
                     contentDescription = contentDescription
                 )

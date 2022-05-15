@@ -15,5 +15,6 @@
   * Fixed dpendency issues realated to Room (again)
   * Upgraded project to Gradle 7.1.3
   * Found some todos, I could only do a few:
-    * Added Toast message for connection errors 
-    
+    * Added Toast message for connection errors
+    * Added on the fly loading of images from URL suing Coil
+    * Changed how rockets without pictures appear
