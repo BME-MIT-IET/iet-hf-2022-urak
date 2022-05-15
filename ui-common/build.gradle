@@ -89,5 +89,7 @@ dependencies {
     androidTestImplementation libs.androidx.test.junit
     androidTestImplementation libs.androidx.test.espresso.core
 
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
 
 }
