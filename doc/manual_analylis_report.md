@@ -14,4 +14,6 @@
   * Found another missing dependency
   * Fixed dpendency issues realated to Room (again)
   * Upgraded project to Gradle 7.1.3
-  
+  * Found some todos, I could only do a few:
+    * Added Toast message for connection errors 
+    
