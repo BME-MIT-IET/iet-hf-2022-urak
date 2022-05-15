@@ -9,7 +9,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-     env:
+    env:
       SPACE_APP_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
       SPACE_APP_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
       SPACE_APP_API_KEY: ${{ secrets.API_KEY }}
