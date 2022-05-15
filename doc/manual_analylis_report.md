@@ -24,4 +24,4 @@
   * Some empty 'else' branches in 'when' statements were given comments. I could not delete them, because of naming conventions.
   * There were many high-complexity methods that were in compose. However refactoring them was something I could not do... Maybe a TODO?
   * There was another couple cases of naming convention violations
-* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nontheless, I believe it to be quite an advancement. ![Screenshot](picutres\SonarLintIssuesAfter.png)
+* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nonetheless, I believe it to be quite an advancement. ![Screenshot](picutres\SonarLintIssuesAfter.png)
