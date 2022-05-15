@@ -17,6 +17,8 @@ buildscript {
         classpath libs.google.gms.google.services
         classpath libs.kotlin.gradle
         classpath libs.dagger.hilt.gradle
+        def nav_version = "2.4.2"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 

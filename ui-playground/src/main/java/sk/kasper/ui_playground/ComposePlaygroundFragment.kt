@@ -205,14 +205,6 @@ class ComposePlaygroundFragment : BaseFragment() {
         }
     }
 
-    private fun Modifier.placeBehindHorizontal(amount: Float) = layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-
-        layout(constraints.maxWidth, placeable.height) {
-            val fl: Float = (constraints.maxWidth) * amount
-            placeable.place(fl.roundToInt(), 0)
-        }
-    }
 
     @Composable
     private fun PlaygroundTabs(onTabSelected: @Composable (PlaygroundTab) -> Unit) {

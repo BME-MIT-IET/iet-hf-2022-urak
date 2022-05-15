@@ -76,8 +76,6 @@ class LaunchFragment : BaseFragment() {
 
         val falconInfoViewModel: FalconInfoViewModel by viewModels()
 
-        val launchSiteViewModel: LaunchSiteViewModel by viewModels()
-
         return ComposeView(requireContext()).apply {
             setContent {
                 SpaceTheme {

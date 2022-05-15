@@ -33,10 +33,17 @@ internal class GetTimelineItemsImpl @Inject constructor(
             checkLaunch(it, filterSpec)
         }
 
-    private fun checkLaunch(it: Launch, filterSpec: FilterSpec) =
-        if (filterSpec.filterNotEmpty())
-                it.tags.map { it.type }.any { filterSpec.tagTypes.contains(it) } or filterSpec.rockets.contains(it.rocketId)
-            else
-                true
+    private fun checkLaunch(it: Launch, filterSpec: FilterSpec): Boolean
+    {
+        return if (filterSpec.filterNotEmpty())
+        {
+            it.tags.map { it.type }
+                .any { filterSpec.tagTypes.contains(it) } or filterSpec.rockets.contains(it.rocketId)
+        }
+        else
+        {
+            true
+        }
+}
 
 }

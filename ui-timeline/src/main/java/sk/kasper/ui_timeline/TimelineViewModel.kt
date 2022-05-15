@@ -195,6 +195,7 @@ open class TimelineViewModel @Inject constructor(
     private suspend fun doSync() {
         when (refreshTimelineItems()) {
             is SuccessResponse -> {
+                // Nothing to do
             }
             is ErrorResponse -> emitSideEffect(SideEffect.ConnectionError)
         }

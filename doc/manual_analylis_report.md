@@ -18,3 +18,10 @@
     * Added Toast message for connection errors
     * Added on the fly loading of images from URL suing Coil
     * Changed how rockets without pictures appear
+
+* After these I focused on the potential issues highlighted by SonarLint. At first there was quite a few: ![Screenshot](picutres\SonarLintIssues.png) Luckily most of these was minor, so I began fixing them.
+  * There were some unused imports still, many of them actually false positives
+  * Some empty 'else' branches in 'when' statements were given comments. I could not delete them, because of naming conventions.
+  * There were many high-complexity methods that were in compose. However refactoring them was something I could not do... Maybe a TODO?
+  * There was another couple cases of naming convention violations
+* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nontheless, I believe it to be quite an advancement. ![Screenshot](picutres\SonarLintIssuesAfter.png)
