@@ -17,7 +17,7 @@ android {
                 if (keystoreFile.exists()) {
                     storeFile keystoreFile
                     storePassword System.getenv("SPACE_APP_KEYSTORE_PASSWORD")
-                    keyAlias "StarlinerKey"
+                    keyAlias "spaceship-launches"
                     keyPassword System.getenv("SPACE_APP_KEY_PASSWORD")
                 } else {
                     println "couldn't find keystore file: " + keystoreFile.path
