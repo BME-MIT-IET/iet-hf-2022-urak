@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    types: [opened, synchronize, reopened]
 
 jobs:
   static_analysis:
@@ -43,9 +43,8 @@ jobs:
         run: ./gradlew build sonarqube --info
 
   build:
-
     runs-on: ubuntu-latest
-
+    if: github.ref == 'refs/hands/main'
     env:
       SPACE_APP_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
       SPACE_APP_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
