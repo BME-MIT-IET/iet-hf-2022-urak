@@ -25,6 +25,7 @@ jobs:
         with: 
             api-level: 29
             script: ./gradlew connectedCheck 
+            java-version: 11
 
        # run: ./gradlew testDebugUnitTest
 
