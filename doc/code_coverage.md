@@ -5,7 +5,7 @@ A projekt amit fejlesztésre választottunk, már rendkívül sok unit tesztel v
 A kód lefedettség mérésére a jacoco eszközt választottuk, mely android-gradle projektekhez is jól használható.
 
 Első sorban a gradle fileokat kellett kiegészítenünk, melyben egy internetes tutorial (https://about.codecov.io/blog/code-coverage-for-android-development-using-kotlin-jacoco-github-actions-and-codecov/) volt segítségünkre.
-A megfelelő pluginok, verziük, taskok beállítása után lokálisan elkészíthettük a jelentéseket, melyket az Android Studio által biztosított 'Run -> Import Test from file' funkcióval is ellenőrizhettünk, illetve többféle xml és html fájl is létrejött a tesztesetekhez.
+A megfelelő pluginok, verziók, taskok beállítása után lokálisan elkészíthettük a jelentéseket, melyket az Android Studio által biztosított 'Run -> Import Test from file' funkcióval is ellenőrizhettünk, illetve többféle xml és html fájl is létrejött a tesztesetekhez.
 
 Például tesztek sikerességéről:
 ![](pictures/test_success.png)
