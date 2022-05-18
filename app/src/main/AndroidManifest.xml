@@ -4,6 +4,7 @@
     package="sk.kasper.space">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk tools:overrideLibrary="sk.kasper.base"/>
 
     <application
         android:name=".SpaceApp"

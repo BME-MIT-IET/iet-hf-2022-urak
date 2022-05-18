@@ -6,6 +6,26 @@ plugins {
     id 'com.google.firebase.crashlytics'
     id 'com.google.gms.google-services'
     id 'dagger.hilt.android.plugin'
+    id 'jacoco'
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ]))
 }
 
 android {
@@ -48,9 +68,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
             manifestPlaceholders += [usesCleartextTraffic: "false"]
+            testCoverageEnabled true
         }
         debug {
             manifestPlaceholders += [usesCleartextTraffic: "true"]
+            testCoverageEnabled true
         }
     }
     compileOptions {
@@ -59,7 +81,7 @@ android {
 
         kotlinOptions {
             freeCompilerArgs += [
-                '-Xopt-in=kotlin.RequiresOptIn',
+                    '-Xopt-in=kotlin.RequiresOptIn',
             ]
         }
     }
@@ -72,6 +94,9 @@ android {
 
         // Always show the result of every unit test, even if it passes.
         unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
             testLogging {
                 events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
             }
