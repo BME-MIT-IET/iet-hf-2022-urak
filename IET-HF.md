@@ -19,6 +19,6 @@ Csapatnév: **urak**
 Tagok:   
 **Csukás Ádám** -   
 **Hende Csanád** - TTIW3T  
-**Kosztolánczi Dominik** - H6PV3N
+**Kosztolánczi Dominik** - H6PV3N  
 **Sike Ádám** -  
 **Tarján Márk** -  
