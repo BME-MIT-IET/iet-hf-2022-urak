@@ -39,6 +39,10 @@ android {
             excludes += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -86,4 +90,7 @@ dependencies {
     testImplementation libs.junit
     testImplementation libs.mockito.kotlin
     testImplementation libs.google.truth
+
+    implementation("io.coil-kt:coil-compose:2.0.0")
+
 }

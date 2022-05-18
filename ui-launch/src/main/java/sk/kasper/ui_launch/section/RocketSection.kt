@@ -2,7 +2,6 @@ package sk.kasper.ui_launch.section
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -26,7 +25,7 @@ fun RocketSection(rocketSectionViewModel: RocketSectionViewModel) {
         ) {
             Text(
                 stringResource(id = state.title),
-                style = MaterialTheme.typography.section,
+                style = section,
                 modifier = Modifier
                     .padding(vertical = 20.dp)
             )

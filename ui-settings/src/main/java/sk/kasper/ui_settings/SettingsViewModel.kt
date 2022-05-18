@@ -16,30 +16,30 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(private val settingsManager: SettingsManager) :
     ReducerViewModel<SettingsState, SettingsSideEffect>(SettingsState(emptyList())) {
 
-    private fun createSettings() = Settings {
-        Choice(
+    private fun createSettings() = settings {
+        choice(
             key = SettingKey.NIGHT_MODE,
             title = R.string.choose_theme,
             values = themeValues,
             selected = settingsManager.getInt(SettingKey.NIGHT_MODE),
         )
 
-        Switch(
+        switch(
             key = SettingKey.SHOW_UNCONFIRMED_LAUNCHES,
             checked = settingsManager.getBoolean(SettingKey.SHOW_UNCONFIRMED_LAUNCHES),
             title = R.string.show_unconfirmed_launches,
             summary = R.string.show_unconfirmed_launches_summary
         )
 
-        Category(title = R.string.notifications) {
-            Switch(
+        category(title = R.string.notifications) {
+            switch(
                 key = SettingKey.SHOW_LAUNCH_NOTIFICATION,
                 title = R.string.show_launch_notifications,
                 checked = settingsManager.getBoolean(SettingKey.SHOW_LAUNCH_NOTIFICATION),
                 summary = R.string.show_launch_notifications_summary
             )
 
-            Choice(
+            choice(
                 key = SettingKey.DURATION_BEFORE_NOTIFICATION_IS_SHOWN,
                 title = R.string.show_launch_notifications_before,
                 values = durationValues,
@@ -48,8 +48,8 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
         }
 
         if (BuildConfig.SHOW_API_ENDPOINTS_PREFERENCE) {
-            Category(title = R.string.debug) {
-                Choice(
+            category(title = R.string.debug) {
+                choice(
                     key = SettingKey.API_ENDPOINT,
                     title = R.string.api_endpoint,
                     values = endpointValues,
@@ -115,7 +115,7 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
         emitSideEffect(SettingsSideEffect.SHOW_RESTART_APP_TOAST)
     }
 
-    private fun Settings(buildingBlock: SettingsBuilder.() -> Unit): List<SettingItem> {
+    private fun settings(buildingBlock: SettingsBuilder.() -> Unit): List<SettingItem> {
         return SettingsBuilder().apply {
             buildingBlock()
         }.items
@@ -125,7 +125,7 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
         private var _items: MutableList<SettingItem> = mutableListOf()
         val items: List<SettingItem> = _items
 
-        fun Switch(
+        fun switch(
             key: SettingKey,
             @StringRes title: Int,
             summary: Int,
@@ -134,7 +134,7 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
             _items.add(SettingItem.Switch(key, title, summary, checked))
         }
 
-        fun Choice(
+        fun choice(
             @StringRes title: Int,
             key: SettingKey,
             values: Map<Int, Int>,
@@ -144,10 +144,10 @@ class SettingsViewModel @Inject constructor(private val settingsManager: Setting
         }
 
         @ExperimentalStdlibApi
-        fun Category(@StringRes title: Int, buildingBlock: SettingsBuilder.() -> Unit) {
+        fun category(@StringRes title: Int, buildingBlock: SettingsBuilder.() -> Unit) {
             _items.add(
                 SettingItem.Category(
-                    items = Settings(buildingBlock),
+                    items = settings(buildingBlock),
                     title = title
                 )
             )

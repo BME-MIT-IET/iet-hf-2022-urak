@@ -52,7 +52,7 @@ class RoundedSquareLetterProvider(context: Context) {
         // letter
         textPaint.getTextBounds(letter.toString(), 0, 1, bounds)
         canvas.drawText(
-            letter.toUpperCase().toString(), 0, 1, 0 + center, 0 + center
+            letter.uppercaseChar().toString(), 0, 1, 0 + center, 0 + center
                     + (bounds.bottom - bounds.top) / 2, textPaint
         )
     }

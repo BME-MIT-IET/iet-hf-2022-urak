@@ -214,6 +214,7 @@ fun LaunchListItemLayout(
             RocketIcon(
                 modifier = Modifier.padding(
                     start = dimensionResource(id = R.dimen.padding_normal)
+                ).size(dimensionResource(id = R.dimen.rocket_icon_size)
                 ),
                 rocketName = viewModel.title,
                 rocketIconId = viewModel.rocketIcon
@@ -267,26 +268,25 @@ private fun RocketIcon(
     modifier: Modifier = Modifier, rocketName: String, rocketIconId: Int
 ) {
     if (rocketIconId == 0) {
-        // todo temp solution: compose canvas can't draw text
         val roundedSquareLetterProvider = RoundedSquareLetterProvider(LocalContext.current)
-        Surface(
-            modifier = modifier.requiredSize(dimensionResource(id = R.dimen.rocket_icon_size))
-        ) {
-            Canvas(modifier = Modifier.fillMaxSize()) {
+
+            Canvas(modifier = Modifier
+                .padding(start = dimensionResource(id = R.dimen.padding_normal))
+                .requiredSize(dimensionResource(id = R.dimen.rocket_icon_size))
+                .fillMaxSize()) {
                 drawIntoCanvas {
                     roundedSquareLetterProvider.drawLetterOnCanvas(
                         it.nativeCanvas,
                         rocketName.first()
                     )
                 }
-            }
+
         }
     } else {
         Image(
             painter = painterResource(id = rocketIconId),
             modifier = modifier
-                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.rounded_corners_radius)))
-                .requiredSize(dimensionResource(id = R.dimen.rocket_icon_size)),
+                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.rounded_corners_radius))),
             contentDescription = "null"
         )
     }

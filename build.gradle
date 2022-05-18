@@ -1,10 +1,10 @@
 buildscript {
     ext.buildConfig = [
-            'compileSdk': 32,
-            'minSdk'    : 23,
-            'targetSdk' : 32,
-            'javaVersion': JavaVersion.VERSION_11,
-            'jvmTarget': "11",
+        'compileSdk': 32,
+        'minSdk'    : 21,
+        'targetSdk' : 32,
+        'javaVersion': JavaVersion.VERSION_11,
+        'jvmTarget': "11",
     ]
     ext.jacocoVersion = '0.8.4'
     repositories {
@@ -18,7 +18,27 @@ buildscript {
         classpath libs.google.gms.google.services
         classpath libs.kotlin.gradle
         classpath libs.dagger.hilt.gradle
-        classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
+        def nav_version = "2.4.2"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+}
+
+plugins {
+    id "org.sonarqube" version "3.3"
+    id "org.gradle.android.cache-fix" version "2.5.3" apply false
+}
+
+subprojects {
+    plugins.withType(com.android.build.gradle.api.AndroidBasePlugin) {
+        project.apply plugin: "org.gradle.android.cache-fix"
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "rocket-launches"
+        property "sonar.organization", "urak-verification"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
 

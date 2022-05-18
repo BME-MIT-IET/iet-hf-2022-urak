@@ -28,7 +28,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
@@ -38,6 +37,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.findNavController
+import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.navigationBarsPadding
@@ -52,7 +52,6 @@ import sk.kasper.ui_common.theme.SpaceTheme
 import sk.kasper.ui_common.ui.InsetAwareTopAppBar
 import java.util.*
 import javax.inject.Inject
-import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class ComposePlaygroundFragment : BaseFragment() {
@@ -207,14 +206,6 @@ class ComposePlaygroundFragment : BaseFragment() {
         }
     }
 
-    private fun Modifier.placeBehindHorizontal(amount: Float) = layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-
-        layout(constraints.maxWidth, placeable.height) {
-            val fl: Float = (constraints.maxWidth) * amount
-            placeable.place(fl.roundToInt(), 0)
-        }
-    }
 
     @Composable
     private fun PlaygroundTabs(onTabSelected: @Composable (PlaygroundTab) -> Unit) {
@@ -459,9 +450,10 @@ class ComposePlaygroundFragment : BaseFragment() {
                 .border(2.dp, Color.LightGray)
         ) {
             Box(contentAlignment = BottomCenter) {
-                // TODO D: use "https://placebear.com/640/420"
                 Image(
-                    painter = painterResource(id = R.drawable.atlas_5),
+                    painter = rememberAsyncImagePainter(
+                        model = "https://placebear.com/640/420"
+                    ),
                     contentScale = contentScale,
                     contentDescription = contentDescription
                 )

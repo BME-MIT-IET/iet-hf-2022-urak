@@ -130,7 +130,7 @@ internal class NotificationsHelperImpl @Inject constructor(
 
     private fun createPendingIntentForWebcast(url: String): PendingIntent {
         val notificationIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        return PendingIntent.getActivity(this, 0, notificationIntent, 0)
+        return PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
     }
 
     private val smallIcon: Int

@@ -285,7 +285,7 @@ class TagsFragment : BaseFragment() {
     }
 
 
-    fun getNextState(ordinal: Int) =
+    private fun getNextState(ordinal: Int) =
         ListState.values()[(ordinal + 1) % ListState.values().size]
 
     @OptIn(ExperimentalAnimationApi::class)

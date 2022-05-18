@@ -23,7 +23,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.navigationBarsPadding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import sk.kasper.ui_common.BaseFragment
 import sk.kasper.ui_common.theme.SpaceTheme
 import sk.kasper.ui_common.utils.getThemeColor
@@ -76,8 +75,6 @@ class LaunchFragment : BaseFragment() {
         val rocketSectionViewModel: RocketSectionViewModel by viewModels()
 
         val falconInfoViewModel: FalconInfoViewModel by viewModels()
-
-        val launchSiteViewModel: LaunchSiteViewModel by viewModels()
 
         return ComposeView(requireContext()).apply {
             setContent {

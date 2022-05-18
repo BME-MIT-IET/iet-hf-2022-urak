@@ -66,7 +66,7 @@ class SyncLaunchesRepositoryImplTest {
         whenever(database.tagDao()).thenReturn(tagDao)
         whenever(database.rocketDao()).thenReturn(rocketDao)
 
-        syncLaunches = SyncLaunchesRepositoryImpl(remoteApi, database, settingsManager, { it() })
+        syncLaunches = SyncLaunchesRepositoryImpl(remoteApi, database, settingsManager) { it() }
     }
 
     @Test

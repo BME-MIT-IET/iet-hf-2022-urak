@@ -17,12 +17,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.toPaddingValues
+import com.google.accompanist.insets.rememberInsetsPaddingValues
 import sk.kasper.ui_launch.R
 import sk.kasper.ui_launch.section.GalleryViewModel
 
@@ -38,10 +38,12 @@ fun GallerySection(viewModel: GalleryViewModel) {
                 .navigationBarsPadding(bottom = false)
         )
         LazyRow(
-            contentPadding = LocalWindowInsets.current.systemBars.toPaddingValues(
-                bottom = false,
-                top = false,
-                additionalHorizontal = 16.dp
+            contentPadding = rememberInsetsPaddingValues(
+                insets = LocalWindowInsets.current.systemBars,
+                applyTop = false,
+                applyBottom = false,
+                additionalStart = 16.dp,
+                additionalEnd = 16.dp
             ),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
@@ -52,8 +54,7 @@ fun GallerySection(viewModel: GalleryViewModel) {
                         viewModel.onPhotoClicked(item)
                     }) {
                     Image(
-                        // TODO D: use item.thumbnailUrl
-                        painter = painterResource(id = R.drawable.ariane_5),
+                        painter = rememberAsyncImagePainter(item.thumbnailUrl),
                         contentDescription = item.description,
                         contentScale = ContentScale.FillHeight,
                         modifier = Modifier.height(dimensionResource(id = R.dimen.launch_gallery_item_height))

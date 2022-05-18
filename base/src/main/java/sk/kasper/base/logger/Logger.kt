@@ -35,11 +35,11 @@ object Logger {
 
 interface LoggingStrategy {
 
-    fun e(msg: String) {}
+    fun e(msg: String) {/*Empty function we will override*/}
 
-    fun e(e: Exception) {}
+    fun e(e: Exception) {/*Empty function we will override*/}
 
-    fun d(msg: String) {}
+    fun d(msg: String) {/*Empty function we will override*/}
 
     fun tag(tag: String): Logger
 

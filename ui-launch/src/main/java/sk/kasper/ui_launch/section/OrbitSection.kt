@@ -27,7 +27,7 @@ fun OrbitSection(viewModel: OrbitViewModel) {
         Column {
             Text(
                 stringResource(id = R.string.section_orbit),
-                style = MaterialTheme.typography.section,
+                style = section,
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 20.dp)
                     .navigationBarsPadding(bottom = false)

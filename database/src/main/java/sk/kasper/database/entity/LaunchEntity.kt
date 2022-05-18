@@ -3,18 +3,14 @@ package sk.kasper.database.entity
 import androidx.room.*
 import org.threeten.bp.LocalDateTime
 
-@Entity(foreignKeys = arrayOf(
-            ForeignKey(
-                entity = RocketEntity::class,
-                parentColumns = arrayOf("id"),
-                childColumns = arrayOf("rocketId")),
-            ForeignKey(
-                entity = LaunchSiteEntity::class,
-                parentColumns = arrayOf("id"),
-                childColumns = arrayOf("launchSiteId"))),
-        indices = arrayOf(
-                Index("rocketId"),
-                Index("launchSiteId")),
+@Entity(foreignKeys = [ForeignKey(
+    entity = RocketEntity::class,
+    parentColumns = arrayOf("id"),
+    childColumns = arrayOf("rocketId")), ForeignKey(
+    entity = LaunchSiteEntity::class,
+    parentColumns = arrayOf("id"),
+    childColumns = arrayOf("launchSiteId"))],
+        indices = [Index("rocketId"), Index("launchSiteId")],
         tableName = "launch")
 data class LaunchEntity(
     @PrimaryKey val id: String,

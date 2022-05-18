@@ -29,7 +29,7 @@ data class TimelineState(
     val progressVisible: Boolean = false
 ) {
     override fun toString(): String {
-        return "TIs = ${timelineItems.size}, filterSpec = ${filterSpec}, clearButtonVisibility = ${clearButtonVisible}, progress = ${progressVisible}"
+        return "TIs = ${timelineItems.size}, filterSpec = ${filterSpec}, clearButtonVisibility = ${clearButtonVisible}, progress = $progressVisible"
     }
 }
 
@@ -195,6 +195,7 @@ open class TimelineViewModel @Inject constructor(
     private suspend fun doSync() {
         when (refreshTimelineItems()) {
             is SuccessResponse -> {
+                // Nothing to do
             }
             is ErrorResponse -> emitSideEffect(SideEffect.ConnectionError)
         }

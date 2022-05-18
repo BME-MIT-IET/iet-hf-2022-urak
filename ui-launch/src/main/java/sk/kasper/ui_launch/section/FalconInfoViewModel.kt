@@ -73,6 +73,7 @@ class FalconInfoViewModel @Inject constructor(
                         landingShipVisible = true
                     }
                     else -> {
+                        // Do nothing
                     }
                 }
             }
@@ -89,10 +90,13 @@ class FalconInfoViewModel @Inject constructor(
                         landingZoneVisible = true
                     }
                     else -> {
+                        // Do nothing
+
                     }
                 }
             }
             else -> {
+                // Do nothing
             }
         }
 

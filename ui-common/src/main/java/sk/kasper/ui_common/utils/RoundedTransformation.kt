@@ -1,6 +1,7 @@
 package sk.kasper.ui_common.utils
 
 import android.graphics.*
+import kotlin.math.min
 
 sealed class RoundedTransformation(private val cornerRadiusPx: Float) {
 
@@ -53,7 +54,7 @@ class RoundedSquareTransformation(cornerRadiusPx: Float): RoundedTransformation(
     override val roundedKey = "square"
 
     override fun getTargetSize(source: Bitmap): Pair<Int, Int> {
-        val size = Math.min(source.width, source.height)
+        val size = min(source.width, source.height)
         return Pair(size, size)
     }
 

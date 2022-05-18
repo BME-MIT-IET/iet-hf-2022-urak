@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+
 }
 
 android {
@@ -39,6 +41,10 @@ android {
         resources {
             excludes += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -86,4 +92,8 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.test.junit
     androidTestImplementation libs.androidx.test.espresso.core
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+
+
 }

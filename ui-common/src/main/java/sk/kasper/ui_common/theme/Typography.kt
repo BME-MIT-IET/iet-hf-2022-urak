@@ -87,7 +87,7 @@ val SpaceTypography = Typography(
     )
 )
 
-val Typography.section: TextStyle
+val section: TextStyle
     get() = TextStyle(
         fontWeight = FontWeight.Medium,
         fontFamily = Montserrat,

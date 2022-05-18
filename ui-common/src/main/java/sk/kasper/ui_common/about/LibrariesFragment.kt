@@ -83,11 +83,6 @@ class LibrariesFragment: BaseFragment() {
                     Text(text = library.name)
                     Text(text = library.link)
                 }
-//                ListItem(
-//                    modifier = Modifier.clickable { onLibraryClick(library) },
-//                    text = { Text(text = library.name) },
-//                    secondaryText = { Text(text = library.link) }
-//                )
             }
         }
     }

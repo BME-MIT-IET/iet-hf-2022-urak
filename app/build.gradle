@@ -37,7 +37,7 @@ android {
                 if (keystoreFile.exists()) {
                     storeFile keystoreFile
                     storePassword System.getenv("SPACE_APP_KEYSTORE_PASSWORD")
-                    keyAlias "StarlinerKey"
+                    keyAlias "spaceship-launches"
                     keyPassword System.getenv("SPACE_APP_KEY_PASSWORD")
                 } else {
                     println "couldn't find keystore file: " + keystoreFile.path
@@ -46,6 +46,9 @@ android {
                 println "keystore keystorePath does not exist"
             }
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 
     compileSdkVersion buildConfig.compileSdk
@@ -155,4 +158,20 @@ dependencies {
     testImplementation libs.androidx.coretesting
     testImplementation libs.junit
     testImplementation libs.mockito.kotlin
+
+
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    def preference_version = "1.2.0"
+
+    implementation "androidx.preference:preference-ktx:$preference_version"
+
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+
+
 }
