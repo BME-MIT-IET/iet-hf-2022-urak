@@ -6,6 +6,7 @@ buildscript {
         'javaVersion': JavaVersion.VERSION_11,
         'jvmTarget': "11",
     ]
+    ext.jacocoVersion = '0.8.4'
     repositories {
         mavenCentral()
         google()

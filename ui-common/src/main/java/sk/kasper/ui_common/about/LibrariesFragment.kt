@@ -14,6 +14,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -96,7 +97,7 @@ class LibrariesFragment: BaseFragment() {
                 )
             },
             navigationIcon = {
-                IconButton(onClick = upClick) {
+                IconButton(onClick = upClick, modifier = Modifier.testTag("LibraryBackButton")) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_arrow_back),
                         contentDescription = "back",
