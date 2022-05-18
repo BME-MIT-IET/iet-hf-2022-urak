@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -133,6 +134,7 @@ fun Timeline(viewModel: TimelineViewModel) {
 
 @Composable
 private fun TimelineAppBar(viewModel: TimelineViewModel) {
+
     InsetAwareTopAppBar(
         title = {
             Text(
@@ -149,13 +151,13 @@ private fun TimelineAppBar(viewModel: TimelineViewModel) {
                 )
             }
 
-            DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }, modifier = Modifier.testTag("DropDownMenuTag")) {
                 if (BuildConfig.DEBUG) {
                     DropdownMenuItem(onClick = { viewModel.navigateClick(Destination.COMPOSE_PLAYGROUND) }) {
                         Text(stringResource(id = R.string.compose_playground))
                     }
                 }
-                DropdownMenuItem(onClick = { viewModel.navigateClick(Destination.SETTINGS) }) {
+                DropdownMenuItem(onClick = { viewModel.navigateClick(Destination.SETTINGS) }, modifier = Modifier.testTag("DropDownMenuSettings")) {
                     Text(stringResource(id = R.string.settings))
                 }
             }
