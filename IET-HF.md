@@ -17,8 +17,8 @@ A feladatok közül a csapattal a követekzőeket választottuk:
 
 Csapatnév: **urak**  
 Tagok:   
-**Csukás Ádám** -   
-**Hende Csanád** - TTIW3T  
-**Kosztolánczi Dominik** - H6PV3N  
-**Sike Ádám** -  
-**Tarján Márk** -  
+**Csukás Ádám** - S060J9  
+**Hende Csanád** - TTIW3T    
+**Kosztolánczi Dominik** - H6PV3N    
+**Sike Ádám** - E8Z277  
+**Tarján Márk** - LPCQXY  
