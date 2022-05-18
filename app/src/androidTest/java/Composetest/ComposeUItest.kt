@@ -23,7 +23,7 @@ import sk.kasper.ui_timeline.TimelineFragment
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class Composetest {
+class ComposeUItest {
 
     @get:Rule
     val composeTestRule = createAndroidComposeRule<MainActivity>()
