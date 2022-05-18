@@ -19,9 +19,18 @@
     * Added on the fly loading of images from URL suing Coil
     * Changed how rockets without pictures appear
 
-* After these I focused on the potential issues highlighted by SonarLint. At first there was quite a few: ![Screenshot](picutres\SonarLintIssues.png) Luckily most of these was minor, so I began fixing them.
+* After these I focused on the potential issues highlighted by SonarLint. At first there was quite a few: ![Screenshot](pictures\SonarLintIssues.png) Luckily most of these was minor, so I began fixing them.
   * There were some unused imports still, many of them actually false positives
   * Some empty 'else' branches in 'when' statements were given comments. I could not delete them, because of naming conventions.
   * There were many high-complexity methods that were in compose. However refactoring them was something I could not do... Maybe a TODO?
   * There was another couple cases of naming convention violations
-* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nonetheless, I believe it to be quite an advancement. ![Screenshot](picutres\SonarLintIssuesAfter.png)
+* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nonetheless, I believe it to be quite an advancement. ![Screenshot](pictures\SonarLintIssuesAfter.png)
+* Next up was making SonarCloud work properly... Oh boy
+  * We needed to set up a new job for the worklow
+  * For this we also needed to create a new keystore and upload the secrets to GitHub
+  * Configure gradle to work properly
+  * Disable build stop on finding errors
+    * Note: error logs sadly did not show what the error was, this was option B.
+  * I had to repeat this process many times
+  * Changed project SDK to API 21
+* Even after countless attempts, the GitHub Action for SonarCloud was not working propperly... So I decided to disable it (We didn't get to the caching part, so waiting 10 minutes for each analysis to finish, only to fish out the result URL from the error log was a no-go). :-(
