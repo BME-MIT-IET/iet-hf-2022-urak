@@ -22,7 +22,7 @@ Sike Ádám - E8Z277
 
   7. Documentation
 
-## Requriments (set by me and the team):
+## Requriments (set by me and the team)
 
 Quoting from the original readme:
 
