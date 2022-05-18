@@ -1,6 +1,9 @@
-# Dokumentáció a kódlefedettség mérésével kapcsolatban
+# Dokumentáció a kódlefedettség mérésével és Unit tesztekkel kapcsolatban
 
-A projekt amit fejlesztésre választottunk, már rendkívül sok unit tesztel volt eredetileg is bővítve. Ezek kiegészítése nehézkes volt, nem sok tesztelhető, de teszteletlen részt találtunk.
+A unit tesztek a kód alapvető működését ellenőrzik. Gyorsak, minimális erőforrást igényelnek, mert az egyes tesztelendő osztályokat, függvényeket önmagukban ellenőrizzük, a szükséges függőségeket pedig "mock-oljuk".
+A tesztelési piramis alapját (alját) testesítik meg. Szemben a UI / integrációs tesztekkel, a unit tesztek írásakor a cél a minél nagyobb kódlefedettség, minél több (értelmes) unit teszt írása.
+
+A projekt amit fejlesztésre választottunk, már rendkívül sok unit tesztel volt eredetileg is bővítve. Ezek kiegészítése nehézkes volt, nem sok tesztelhető, de teszteletlen részt találtunk. Az általunk újonnan írt tesztek a DateUtils osztály lefedettségét emelik fel 100%-osra.
 
 A kód lefedettség mérésére a jacoco eszközt választottuk, mely android-gradle projektekhez is jól használható.
 
@@ -15,7 +18,8 @@ A kód lefedettségéről:
 ![](pictures/code_coverage.png)
 
 Az utolsó tervünk a GithubActions beüzemelése lett volna a projekt CI-jának, hogy minden push és pullrequest esetén lefusson egy teszt.
-Erre a célra létrehoztunk egy workflow-t:
+Az automatikus teszteléshez új github workflow-t hoztunk létre (workflows/newCodeCov.yml fájl írja le az egyes lépéseket), illetve ezt kötöttük össze a codecov.io report generáló rendszerével (ami az automatizált tesztek során létrejövő lokális eredményeket összesíti az online felületén).
+
 
     name: CodeCov
 
@@ -60,6 +64,7 @@ Erre a célra létrehoztunk egy workflow-t:
                     files: "app/build/reports/coverage/debug/report.xml"
 
 A buildelés alatt azonban több errorba is beleütköztünk, melyek közül volt amit nem sikerült javítani a feladat leadásának határidejéig.
+(Az utolsó megoldatlan error a virtuális gépen elindított build során: Hiába állítottuk be az összes gradle file-ban és dependenciában a java-version-t 11-re, illetve a futtató környezet java verzióját is 11-esre, mégis java 1.8-ra hivatkozva crash-el a workflow.
 
 ![](pictures/error.png)
 
