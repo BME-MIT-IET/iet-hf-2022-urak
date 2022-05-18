@@ -24,6 +24,13 @@ buildscript {
 
 plugins {
     id "org.sonarqube" version "3.3"
+    id "org.gradle.android.cache-fix" version "2.5.3" apply false
+}
+
+subprojects {
+    plugins.withType(com.android.build.gradle.api.AndroidBasePlugin) {
+        project.apply plugin: "org.gradle.android.cache-fix"
+    }
 }
 
 sonarqube {
