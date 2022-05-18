@@ -37,6 +37,11 @@ Az automatikus teszteléshez új github workflow-t hoztunk létre (workflows/new
                 - uses: actions/checkout@v2
                     with:
                     java-version: 11
+                    
+                - name: set up JDK 11
+                    uses: actions/setup-java@v1
+                    with:
+                        java-version: 11
 
                 - name: Unit Test with Android Emulator Runner
                     uses: ReactiveCircus/android-emulator-runner@v2.14.3
@@ -64,9 +69,9 @@ Az automatikus teszteléshez új github workflow-t hoztunk létre (workflows/new
                     files: "app/build/reports/coverage/debug/report.xml"
 
 A buildelés alatt azonban több errorba is beleütköztünk, melyek közül volt amit nem sikerült javítani a feladat leadásának határidejéig.
-(Az utolsó megoldatlan error a virtuális gépen elindított build során: Hiába állítottuk be az összes gradle file-ban és dependenciában a java-version-t 11-re, illetve a futtató környezet java verzióját is 11-esre, mégis java 1.8-ra hivatkozva crash-el a workflow.
+(Az utolsó megoldatlan error a virtuális gépen elindított build során: gradle verzió problémák).
 
-![](pictures/error.png)
+![](pictures/error_gradle.png)
 
 Így az automatizálás elmaradt, de a kód lefedettségét bármikor ellenőrizhetjük a következő parancsok futtatásával:
 
