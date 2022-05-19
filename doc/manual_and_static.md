@@ -71,12 +71,12 @@ Additional requirements based on (half)-implemented features already in the app:
     * Added Toast message for connection errors
     * Added on the fly loading of images from URL suing Coil
     * Changed how rockets without pictures appear
-* After these I focused on the potential issues highlighted by SonarLint. At first there was quite a few: ![Screenshot](doc\pictures\SonarLintIssues.png) Luckily most of these was minor, so I began fixing them.
+* After these I focused on the potential issues highlighted by SonarLint. At first there was quite a few: ![Screenshot](//doc//pictures//SonarLintIssues.png) Luckily most of these was minor, so I began fixing them.
   * There were some unused imports still, many of them actually false positives
   * Some empty 'else' branches in 'when' statements were given comments. I could not delete them, because of naming conventions.
   * There were many high-complexity methods that were in compose. However refactoring them was something I could not do... Maybe a TODO?
   * There was another couple cases of naming convention violations
-* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nonetheless, I believe it to be quite an advancement. ![Screenshot](doc\pictures\SonarLintIssuesAfter.png)
+* I managed to get rid of about 10 of the issues. The rest were false alarms or way beyond my current level of understanding to solve. Nonetheless, I believe it to be quite an advancement. ![Screenshot](//doc//pictures//SonarLintIssuesAfter.png)
 
 ## Sonar Cloud
 
@@ -92,7 +92,8 @@ Additional requirements based on (half)-implemented features already in the app:
   * Added a plugin that fixes some issues with Gradle Caching
 
   * I spent many hours trying to fix the issue. It worked!
-  ![Screenshot](doc\pictures\Sonar.png)
+  ![Screenshot](//doc//pictures//Sonar.png)
   * However the GitHub action still fails...
     * As far as I can tell, some tests won't run due to some file access violations
+  * I've set up the analysis an my local PC and it works fine, so...
   * Also, I was running it as a part of a different organisation, but I fixed it with the help of Csani
