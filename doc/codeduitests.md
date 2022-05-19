@@ -51,7 +51,7 @@ A UI tesztek célja, hogy a unit tesztekkel ellentétben az üzleti logikától 
 
 ![](pictures/uitestscreenshot.png)
 
-A tesztek bár sikeresen lefutottak, nem teljesen egyértelmű eredmények is láthatóak voltak a fragmentek gyökérfelépítésének logjában. Bizonyos tab nézeteknél a composePlayGround esetén, például a "Color" esetében, nem értem el a színek neveit szöveg és azonosító alapján sem. Az adott nézethez kiírt log másik tab tartalmát írta ki, a "Components"-ét. A tesztek eredményéről, egy a beszámoló nevével megegyező képernyőfotó megtalálható a docs mappában.
+A tesztek bár sikeresen lefutottak, nem teljesen egyértelmű eredmények is láthatóak voltak a fragmentek gyökérfelépítésének logjában. Bizonyos tab nézeteknél a composePlayGround esetén, például a "Color" esetében, nem értem el a színek neveit szöveg és azonosító alapján sem. Az adott nézethez kiírt log másik tab tartalmát írta ki, a "Components"-ét. A projekt readme-jében szereplő információból kiindulva, miszerint az alkalmazás megjelenítésének átírása folyamatban van compose-ra, arra következtettem, hogy itt még hibásan jelenít meg a fejlesztő információkat.  A tesztek eredményéről, egy a beszámoló nevével megegyező képernyőfotó megtalálható a docs mappában.
 
 ## Személyes tanulságok
 
