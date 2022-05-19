@@ -35,11 +35,11 @@ subprojects {
 }
 
 sonarqube {
-    properties {
-        property "sonar.projectKey", "rocket-launches"
-        property "sonar.organization", "urak-verification"
-        property "sonar.host.url", "https://sonarcloud.io"
-    }
+  properties {
+    property "sonar.projectKey", "BME-MIT-IET_iet-hf-2022-urak"
+    property "sonar.organization", "bme-mit-iet-org"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 allprojects {
