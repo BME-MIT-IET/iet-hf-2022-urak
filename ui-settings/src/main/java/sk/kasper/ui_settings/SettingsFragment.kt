@@ -13,6 +13,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -61,10 +62,8 @@ class SettingsFragment : BaseFragment() {
             setContent {
                 SpaceTheme {
                     ProvideWindowInsets {
-                        Column (
-                            modifier = Modifier
-                                .verticalScroll(rememberScrollState())
-                        ){
+                        Column(modifier =
+                        Modifier.verticalScroll(rememberScrollState())) {
                             val state by viewModel.state.collectAsState()
                             TopAppBar {
                                 openLibraries()
@@ -130,7 +129,8 @@ class SettingsFragment : BaseFragment() {
                 )
             },
             navigationIcon = {
-                IconButton(onClick = { findNavController().popBackStack() }) {
+                IconButton(onClick = { findNavController().popBackStack() },
+                    modifier = Modifier.testTag("SettingsBackButton")) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_arrow_back),
                         contentDescription = "back",
@@ -139,7 +139,7 @@ class SettingsFragment : BaseFragment() {
             },
             actions = {
                 var expanded by remember { mutableStateOf(false) }
-                IconButton(onClick = { expanded = true }) {
+                IconButton(onClick = { expanded = true }, modifier = Modifier.testTag("SettingsDropDownMenuTag")) {
                     Icon(
                         painterResource(id = R.drawable.ic_baseline_more_vert_24),
                         contentDescription = null
@@ -147,7 +147,7 @@ class SettingsFragment : BaseFragment() {
                 }
 
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-                    DropdownMenuItem(onClick = { onShowLibraries() }) {
+                    DropdownMenuItem(onClick = { onShowLibraries() },modifier = Modifier.testTag("SettingsDropDownMenuItem")) {
                         Text(stringResource(id = R.string.libraries))
                     }
                 }
