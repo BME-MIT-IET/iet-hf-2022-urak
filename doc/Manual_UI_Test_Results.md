@@ -30,3 +30,12 @@
 | Ki akarom listáztatni a különböző Composable színeket | Rákattintok a Color fülre | Az alkalmazás kilistázza a potenciális színeket | Az alkalmazás az elvártnak megfelelően működött |
 | Ki akarom listáztatni a különböző Composable formákat | Rákattintok a Shape fülre | Az alkalmazás kilistázza a potenciális formákat | Az alkalmazás az elvártnak megfelelően működött |
 | Ki akarom listáztatni a különböző Composable típusokat | Rákattintok a Type fülre | Az alkalmazás kilistázza a potenciális típusokat | Az alkalmazás az elvártnak megfelelően működött |
+| **Innentől az elforgatott módot teszteltem, csak azokat emelem ki, amikben működési változás történt** |
+| Elforgatva akarom használni az alkalmazást | Elforgatom a készüléket | Az alkalmazás elforgatott módba vált | Az alkalmazás az elvártnak megfelelően működött |
+| Egy felszálláshoz tartozó képeket akarom megnézni elforgatott módban | Rákattintok az egyik képre és elhúzom | A képek elmozdulnak a húzás irányába | Az alkalmazás általában az elvártnak megfelelően működik, de néha összeomlik, ez elképzelhető, hogy emulátor hiba |
+| A Settings nézetet szeretném megjeleníteni | Az állított módnak megfelelően cselekszem | A Settings nézet megjelenik és a különböző beállításokat át tudom állítani | A Settings nézet megfelel az állított módban látotthoz, de nem görgethető. Emiatt az alsó beállítások csak nehézkesen, vagy egyáltalán nem érhetőek el |
+|
+ |
+ |
+ |
+ |
