@@ -93,3 +93,6 @@ Additional requirements based on (half)-implemented features already in the app:
 
   * I spent many hours trying to fix the issue. It worked!
   ![Screenshot](doc\pictures\Sonar.png)
+  * However the GitHub action still fails...
+    * As far as I can tell, some tests won't run due to some file access violations
+  * Also, I was running it as a part of a different organisation, but I fixed it with the help of Csani
