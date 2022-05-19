@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -60,7 +62,8 @@ class SettingsFragment : BaseFragment() {
             setContent {
                 SpaceTheme {
                     ProvideWindowInsets {
-                        Column {
+                        Column(modifier =
+                        Modifier.verticalScroll(rememberScrollState())) {
                             val state by viewModel.state.collectAsState()
                             TopAppBar {
                                 openLibraries()
