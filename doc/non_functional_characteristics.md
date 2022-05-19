@@ -1,6 +1,6 @@
 # Dokumentáció a nem-funkcionális jellemzők vizsgálatáról
 
-A vizsgálat elvégzéséhez két eszközt használtam. Az első ilyen eszköz az Android Studio beépített Profiler tool-ja, a másik pedig a Firebase Test Lab.
+A performance és stressz vizsgálat elvégzéséhez két eszközt használtam. Az első ilyen eszköz az Android Studio beépített Profiler tool-ja, a másik pedig a Firebase Test Lab.
 
 ## Profiler
 
@@ -47,8 +47,15 @@ Jelen esetben 3 figyelmeztetést kaptunk a "Concent labeling"-re, ez azt jelenti
 
 ![](pictures/testlab_accessibility.png)
 
+## Használhatóság
+
+A használhatóságot a manuális ui tesztekhez hasonlóan kézi "nyomogatással" végeztem. Az alkalmazás használata időnként kényelmetlen, ilyen a gombok gyakran kicsinek érződtek, mint például a timeline esetén megnyomott 3 pöttyből álló gomb. Emellett felfedezett probléma, hogy az eszköz fektetett nézete esetén a beállítások menü nem minden eleme érhető el, mivel nem egy scrollable nézetről van szó.
+
+![](pictures/nonfunctional_horizontal_view.png)
 
 ## Személyes tapasztalatok
 
 Az Android Studio beépített Profiler eszköze mint gyakran az integrált megoldásoktól várható, nem szolgál túl bő adathalmazzal.
 Ezzel szemben a Firebase Test Lab nagyobb mélységekbe menő teljesítmény adatokat ad vissza, emellett stressz-teszterként is funkcionál, mivel sok, gyors egymásutáni user inputot bocsájt az alkalmazásnak feldolgozásra.
+
+*Made by Kosztolánczi Dominik*
