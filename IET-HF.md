@@ -12,6 +12,7 @@ A feladatok közül a csapattal a követekzőeket választottuk:
 * Manuális kód átvizsgálás elvégzése, statikus analízis
 * Egységtesztek kiegészítése, kódlefedettség mérése
 ### Termék/felhasználó fókusz
+* Nem-funkcionális jellemzők vizsgálata
 * UI tesztek készítése
 * Manuális tesztek megtervezése, végrehajtása és dokumentálása
 
